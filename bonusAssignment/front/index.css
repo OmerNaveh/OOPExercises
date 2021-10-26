@@ -4,19 +4,47 @@ body{
     background-repeat: no-repeat;
     background-size: 90%;
 }
+.jerseySect{
+    visibility: hidden;
+}
 .jersey{
     mix-blend-mode:multiply;
-    height: 135px;
-    width: 135px;
+    height: 500px;
+    width: 700px;
+    margin-left: 5%;
+    margin-top: 3%;
+    z-index: 0;
 }
-.outfielders{
+
+.playerName{
+    font-size: 60px;
+    color: white;
+    position: fixed;
+    padding: 2em;
+    left: 33%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 6px black
+}
+
+.playerNumber{
+    font-size: 160px;
+    color: white;
+    position: fixed;
+    padding: 2em;
+    left: 33%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 8px black
+}
+/* .outfielders{
     display: flex;
     flex-wrap: wrap;
     width: 70%;
     z-index: 0;
 
-}
-#attackers{
+} */
+/* #attackers{
     margin-left: 35%;
 }
 #midfield{
@@ -45,7 +73,7 @@ font-weight: bold;
 z-index: 1;
 left:39%;
 top:6%;
-}
+} */
 
 .Control{
     position:absolute;
@@ -59,15 +87,47 @@ top:6%;
 }
 .createPlayerSection{
     visibility: hidden;
+    position:absolute;
+    right: 50%;
+    top: 10%;
+    text-align: center;
+}
+.createGoalkeeperSect{
+    visibility: hidden;
+    position:absolute;
+    right: 50%;
+    top: 10%;
+    text-align: center;
 }
 .PlayerInput{
     display: flex;
     text-align: center;
     margin-left: 30%;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
+}
+.GoalKeeperInput{
+    display: flex;
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 10px;
+}
+.searchInput{
+    display: flex;
+    text-align: center;
+    margin-top: 20%;
+    margin-left: 40%;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.returnBtn{
+    position:absolute;
+    right: 60%;
+    top: 0;
+    text-align: center;
 }
 select{
-    width: 44.3%;
+    width: 100%;
 }
 .ControlBtn{
     background-color:gold;
@@ -76,4 +136,22 @@ select{
     margin: 6px;
     border-radius: 2rem;
     cursor: pointer;
+}
+.sectBtn{
+    background-color:gold;
+    border-radius: 2rem;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 70%;
+    margin-top: 9rem;
+    text-align: center;
+}
+.SearchPlayerSect{
+    visibility: hidden;
+    position:absolute;
+    right: 50%;
+    top: 10%;
+    text-align: center;
 }

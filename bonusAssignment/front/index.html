@@ -10,6 +10,13 @@
     <script src="index.js" defer></script>
 </head>
 <body>
+    <div id='jerseySect' class="jerseySect">
+        <img id='playerJersey' class="jersey">
+        <div id='jerseyInfo'>
+            <label id= 'playerName' class='playerName'></label>
+            <label id= 'playerNumber' class='playerNumber'></label>
+        </div>
+    </div>
     <!-- <div id="outfielders" class="outfielders">
         <section id='goalkeeperSect'>
             <label id='goalkeeperName' class='goalName'>Moe</label>
@@ -41,11 +48,9 @@
             <button class="ControlBtn" id='GetPlayerDetBtn'>Get PlayerDetails</button>
             <button class="ControlBtn" id='SetPlayerDetBtn'>Set PlayerDetails</button>
         </section>
-
-
-
-
+        
         <form id="createPlayerSection" class="createPlayerSection">
+            <h4>Create Player</h4>
             <input class="PlayerInput" placeholder="Enter first name" required>
             <input class="PlayerInput" placeholder="Enter Last name" required>
             <input class="PlayerInput" placeholder="Enter salary" required>
@@ -53,19 +58,40 @@
             <input class="PlayerInput" placeholder="Enter Id Number" required>
             <input class="PlayerInput" placeholder="Enter Celebration Sentence" required>
             <select class="PlayerInput">
-            <option disabled selected>Select Position</option>
-            <option>Forward</option>
-            <option>Midfielder</option>
-            <option>Defender</option>
+                <option disabled selected>Select Position</option>
+                <option>Forward</option>
+                <option>Midfielder</option>
+                <option>Defender</option>
             </select>
             <select  class="PlayerInput">
                 <option disabled selected>Select Strong Leg</option>
                 <option>Left</option>
                 <option>Right</option>
             </select>
-            <button id="createPlayerBtn">Create Player</button>
+            <button id="createPlayerBtn" class="sectBtn">Create Player</button>
+        </form>
+
+        <form id="createGoalkeeperSect" class="createGoalkeeperSect">
+            <h4>Create Goalkeeper</h4>
+            <input class="GoalKeeperInput" placeholder="Enter first name" required>
+            <input class="GoalKeeperInput" placeholder="Enter Last name" required>
+            <input class="GoalKeeperInput" placeholder="Enter salary" required>
+            <input class="GoalKeeperInput" placeholder="Enter age" required>
+            <input class="GoalKeeperInput" placeholder="Enter Id Number" required>
+            <select class="GoalKeeperInput">
+            <option  disabled selected>IsLeftHanded</option>
+            <option>True</option>
+            <option>False</option>
+            </select>
+            <input class="GoalKeeperInput" type="date" placeholder="Last Goal Conceeded Date">
+            <button id="createGoalKepperBtn" class="sectBtn">Create Goalkeeper</button>
         </form>
         
+        <section id='SearchPlayerSect' class='SearchPlayerSect'>
+            <label class="searchInput">Player Number</label>
+            <input type="number" class = 'searchInput'>
+            <button id="searchPlayerDetBtn" class="sectBtn">&#128269;</button>
+        </section>
     </section>
 
 </body>
