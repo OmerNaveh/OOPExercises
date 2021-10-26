@@ -73,10 +73,5 @@ class BassGuitar extends ClassicGuitar{
     }
 }
 const ggg = new ClassicGuitar(1999, 'as', 120, 5, 4);
-// console.log(ggg); 
-// ggg.setPrice = 111
-// console.log(ggg.brand); 
 const bass =  new BassGuitar(2010,"volvo", 250 ,undefined, 17);
-// console.log(bass)
 const electric =  new ElectricGuitar(2010,"volvo", 250 ,undefined, 17,true);
-// console.log(electric.getId);
