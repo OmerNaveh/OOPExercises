@@ -1,0 +1,79 @@
+body{
+    
+    background-image: url('https://media.istockphoto.com/photos/dramatic-american-football-stadium-picture-id530810426?b=1&k=20&m=530810426&s=170667a&w=0&h=ocKx7cDRsRwUyqmuli_6pDoKht5J0fW4MkjsBVbTgYQ=');
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+.jersey{
+    mix-blend-mode:multiply;
+    height: 135px;
+    width: 135px;
+}
+.outfielders{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    z-index: 0;
+
+}
+#attackers{
+    margin-left: 35%;
+}
+#midfield{
+    margin-left: 35%;
+}
+#defence{
+    margin-left: 26.5%;
+}
+#goalkeeperSect{
+    margin-left: 50%;
+}
+.goalNum{
+    position: absolute;
+    color: yellow;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 1;
+    left: 39.4%;
+    top:12%;
+}
+.goalName{
+position: absolute;
+color: yellow;
+font-size: 20px;
+font-weight: bold;
+z-index: 1;
+left:39%;
+top:6%;
+}
+
+.Control{
+    position:absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    border-left: solid 1.5px black;
+    background-color: darkcyan;
+    text-align: center;
+}
+.createPlayerSection{
+    visibility: hidden;
+}
+.PlayerInput{
+    display: flex;
+    text-align: center;
+    margin-left: 30%;
+    margin-bottom: 4px;
+}
+select{
+    width: 44.3%;
+}
+.ControlBtn{
+    background-color:gold;
+    height: 130px;
+    width: 130px;
+    margin: 6px;
+    border-radius: 2rem;
+    cursor: pointer;
+}

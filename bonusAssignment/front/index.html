@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Cyber4s</title>
+    <link rel='stylesheet' href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <!-- <div id="outfielders" class="outfielders">
+        <section id='goalkeeperSect'>
+            <label id='goalkeeperName' class='goalName'>Moe</label>
+            <label id='goalkeeperNum' class='goalNum'>27</label>
+            <img id='goalkeeper'class="jersey"src="https://shop.inkholic.in/wp-content/uploads/2019/10/navy-blue-back-side.jpg">
+        </section>
+        <section id='defence'>
+            <img id='player1' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player2' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player3' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player4' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+        </section>
+        <section id='midfield'>
+            <img id='player5' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player6' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player7' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+        </section>
+        <section id='attackers'>
+            <img id='player8' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player9' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+            <img id='player10' class="jersey"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU">
+        </section>
+    </div>   -->
+    <section class="Control">
+        <h3>Control Panel</h3>
+        <section id="ControlSect">
+            <button class="ControlBtn" id='createPlayerSecBtn'>Create Player</button>
+            <button class="ControlBtn" id='createGoalkeeperSecBtn'>Create Goalkeeper</button>
+            <button class="ControlBtn" id='GetPlayerDetBtn'>Get PlayerDetails</button>
+            <button class="ControlBtn" id='SetPlayerDetBtn'>Set PlayerDetails</button>
+        </section>
+
+
+
+
+        <form id="createPlayerSection" class="createPlayerSection">
+            <input class="PlayerInput" placeholder="Enter first name" required>
+            <input class="PlayerInput" placeholder="Enter Last name" required>
+            <input class="PlayerInput" placeholder="Enter salary" required>
+            <input class="PlayerInput" placeholder="Enter age" required>
+            <input class="PlayerInput" placeholder="Enter Id Number" required>
+            <input class="PlayerInput" placeholder="Enter Celebration Sentence" required>
+            <select class="PlayerInput">
+            <option disabled selected>Select Position</option>
+            <option>Forward</option>
+            <option>Midfielder</option>
+            <option>Defender</option>
+            </select>
+            <select  class="PlayerInput">
+                <option disabled selected>Select Strong Leg</option>
+                <option>Left</option>
+                <option>Right</option>
+            </select>
+            <button id="createPlayerBtn">Create Player</button>
+        </form>
+        
+    </section>
+
+</body>
+</html>

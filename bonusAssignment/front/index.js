@@ -1,0 +1,2 @@
+const playerJerseyImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv15yWPTBlh19o8oYoEvHKv3tXVa9m30DIDg&usqp=CAU"
+const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-blue-back-side.jpg"
