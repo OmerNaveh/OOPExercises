@@ -29,7 +29,13 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
  //setPlayerInfo
  const setPlayerInfoSect = document.getElementById('setPlayerInfoSect');
  const SetPlayerDetBtn = document.getElementById('SetPlayerDetBtn');
-
+ const setInfoBtn = document.getElementById('setInfoBtn');
+ const playerSet = document.getElementById('playerSet');
+ const goalKeeperSet = document.getElementById('goalKeeperSet');
+ const setInfo= document.getElementsByClassName('setInfo')
+ const isGoalsetInfo= document.getElementsByClassName('isGoalsetInfo')
+ const isPlayersetInfo= document.getElementsByClassName('isPlayersetInfo')
+ 
  //Event Listeners
  createPlayerSecBtn.addEventListener('click', ()=>{
     ControlSect.style.visibility = 'hidden';
@@ -113,6 +119,7 @@ async function searchBtnCap(){
 function searchBtnCap2(){
     SearchPlayerSect.style.visibility = 'hidden';
     setPlayerInfoSect.style.visibility = 'visible';
+    setInfoBtn.addEventListener('click', putChanges)
     searchInput.value= ""; //reset value after press
     const backBtn = document.createElement('button');
     backBtn.classList.add('returnBtn');
@@ -214,3 +221,46 @@ function resetPlayerDetails(){
     goalkeeperlabels[0].textContent = 'Is Left Handed: '
     goalkeeperlabels[1].textContent = 'Last Goal Conceeded: '
 }
+async function whatDetCanChange(playerId){
+    try {    
+        const response = await axios.get('http://localhost:8080/player/get', {headers:{id:playerId}});
+        const data = response.data;
+        if(data.hasOwnProperty('position')){
+            playerSet.style.visibility = 'visible'
+            return true
+        }
+        else{
+            goalKeeperSet.style.visibility = 'visible'
+            return false;
+           
+        }
+    } catch (error) {
+        alert(`cant get player ${error}`) 
+    }
+}
+async function putChanges(){
+    const playerId = searchInput.value;
+    const x = await whatDetCanChange(searchInput.value);
+    const sendData = {};
+    let i = 0;
+    for(let info of setInfo){
+        sendData.i = info.value;
+        i++;
+    }
+    if(x){
+        for(let info of isPlayersetInfo){
+            sendData.i = info.value;
+            i++;
+        }
+    }else{
+        for(let info of isGoalsetInfo){
+            sendData.i = info.value;
+            i++;
+        }
+    }
+    await axios.put('http://localhost:8080/player/set', {headers:{id:playerId}, body:{
+        info: {sendData}
+    }})
+}
+
+
