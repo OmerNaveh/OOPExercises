@@ -113,13 +113,16 @@ async function searchBtnCap(){
         ControlSect.style.visibility = 'visible';
         getPlayerInfoSect.style.visibility = 'hidden';
         resetPlayerDetails();
+        hideJersey();
         backBtn.remove()})
         searchPlayerDetBtn.removeEventListener('click', searchBtnCap)
 }
 function searchBtnCap2(){
     SearchPlayerSect.style.visibility = 'hidden';
     setPlayerInfoSect.style.visibility = 'visible';
-    setInfoBtn.addEventListener('click', putChanges)
+    const playerId = searchInput.value;
+    whatDetCanChange(playerId)
+    setInfoBtn.addEventListener('click', ()=>{putChanges(playerId)})
     searchInput.value= ""; //reset value after press
     const backBtn = document.createElement('button');
     backBtn.classList.add('returnBtn');
@@ -128,6 +131,7 @@ function searchBtnCap2(){
     backBtn.addEventListener('click', ()=>{
         ControlSect.style.visibility = 'visible';
         setPlayerInfoSect.style.visibility = 'hidden';
+        removeExtDet()
         backBtn.remove()})
         searchPlayerDetBtn.removeEventListener('click', searchBtnCap2)
 }
@@ -147,7 +151,7 @@ async function createPlayerFunc(e){
         await axios.post('http://localhost:8080/player/create',{
             headers:{},
             body:{
-                info : {toSend}
+                info : toSend
             }
         })
         alert('player was successfully created')
@@ -171,7 +175,7 @@ async function createGoalkeeperFunc(e){
         await axios.post('http://localhost:8080/goalkeeper/create',{
             headers:{},
             body:{
-                info : {toSend}
+                info : toSend
             }
         })
         alert('player was successfully created')
@@ -183,10 +187,11 @@ async function getplayerDetFunc(playerId){
     try {    
         const response = await axios.get('http://localhost:8080/player/get', {headers:{id:playerId}});
         const data = response.data;
+        showJersey(data) //displays jersey
         if(data.hasOwnProperty('position')){
             playerInfoSect.style.visibility = 'visible'
             for(let i=0; i< infoLabels.length ; i++){
-                infoLabels[i].textContent += data.i;
+                infoLabels[i].textContent += data[i];
             }
             for (i=0; i<playerlabels.length ; i++)
             {
@@ -196,7 +201,7 @@ async function getplayerDetFunc(playerId){
         else{
             goalkeeperInfoSect.style.visibility = 'visible'
             for(let i=0; i< infoLabels.length ; i++){
-                infoLabels[i].textContent += data.i;
+                infoLabels[i].textContent += data[i];
             }
             for (i=0; i<goalkeeperlabels.length ; i++)
             {
@@ -238,29 +243,56 @@ async function whatDetCanChange(playerId){
         alert(`cant get player ${error}`) 
     }
 }
-async function putChanges(){
-    const playerId = searchInput.value;
-    const x = await whatDetCanChange(searchInput.value);
-    const sendData = {};
-    let i = 0;
-    for(let info of setInfo){
-        sendData.i = info.value;
-        i++;
-    }
-    if(x){
-        for(let info of isPlayersetInfo){
-            sendData.i = info.value;
-            i++;
-        }
-    }else{
-        for(let info of isGoalsetInfo){
-            sendData.i = info.value;
-            i++;
-        }
-    }
-    await axios.put('http://localhost:8080/player/set', {headers:{id:playerId}, body:{
-        info: {sendData}
-    }})
-}
+function removeExtDet(){
+    playerSet.style.visibility = 'hidden'
+    goalKeeperSet.style.visibility = 'hidden'
 
+}
+async function putChanges(playerId){
+    try {
+        const x = await whatDetCanChange(playerId);
+        const sendData = {};
+        let i = 0;
+        for(let info of setInfo){
+            sendData[i] = info.value;
+            i++;
+        }
+        if(x){
+            for(let info of isPlayersetInfo){
+                sendData[i] = info.value;
+                i++;
+            }
+        }else{
+            for(let info of isGoalsetInfo){
+                sendData[i] = info.value;
+                i++;
+            }
+        }
+        await axios.put('http://localhost:8080/player/set', {
+            headers:{id: playerId} ,
+            body:{
+                info:sendData
+            }
+        })
+        alert('changes were made')
+    } catch (error) {
+          alert('wasnt able to make changes')  
+    }
+}
+function showJersey(data){
+    if(data.hasOwnProperty('position')){
+        img.src = playerJerseyImg;
+    }
+    else{
+        img.src = goalkeeperImg;
+    }
+    playerName.textContent = data.surName;
+    playerNumber.textContent = data[4];
+    jerseySect.style.visibility = 'visible';
+}
+function hideJersey(){
+    jerseySect.style.visibility = 'hidden';
+    playerNumber.textContent = '';
+    playerName.textContent = '';
+}
 

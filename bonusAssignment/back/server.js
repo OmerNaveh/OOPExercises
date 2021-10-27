@@ -10,4 +10,4 @@ app.listen(8080, ()=>{
 })
 app.use(cors());
 app.use('/player', playerRouter)
-// app.use('/goalkeeper', goalKepperRouter)
+app.use('/goalkeeper', goalKepperRouter)
