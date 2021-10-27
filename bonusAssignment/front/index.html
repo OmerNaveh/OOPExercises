@@ -89,9 +89,42 @@
         
         <section id='SearchPlayerSect' class='SearchPlayerSect'>
             <label class="searchInput">Player Number</label>
-            <input type="number" class = 'searchInput'>
+            <input id="searchInput" type="number" class = 'searchInput'>
             <button id="searchPlayerDetBtn" class="sectBtn">&#128269;</button>
         </section>
+        
+        <section id="getPlayerInfoSect" class="getPlayerInfoSect">
+            <h4>Player Info</h4>
+            <div class="playerInfo">First Name: </div>
+            <div class="playerInfo">Last Name: </div>
+            <div class="playerInfo">Salary: </div>
+            <div class="playerInfo">Age: </div>
+            <div class="playerInfo">Id: </div>
+            <section id='goalkeeperInfoSect' class="goalkeeperInfoSect">
+                <div class="isgoalkeeperInfo">Is Left Handed: </div>
+                <div class="isgoalkeeperInfo">Last Goal Conceeded: </div>
+            </section>
+            <section id='playerInfoSect' class="playerInfoSect">
+                <div class="isplayerInfo">Position: </div>
+                <div class="isplayerInfo">Strong Leg: </div>
+                <div class="isplayerInfo">Celebration Sentence: </div>
+            </section>
+        </section>
+
+        <form id="setPlayerInfoSect" class="setPlayerInfoSect">
+            <h4>Change Details</h4>
+            <input class="setInfo" placeholder="Enter salary" required>
+            <input class="setInfo" placeholder="Enter age" required>
+            <section id="goalKeeperSet" class="goalKeeperSet">
+                <input class="setInfo" type="date" placeholder="Last Goal Conceeded Date">
+            </section>
+            <section id="playerSet" class="playerSet">
+                <input class="setInfo" placeholder="Position">
+                <input class="setInfo" placeholder="Celebration Sentence">
+            </section>
+            <button id="setInfoBtn" class="sectBtn">Set Changes</button>
+        </form>
+
     </section>
 
 </body>
