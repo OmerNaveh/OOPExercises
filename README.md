@@ -1,5 +1,5 @@
 # OOPExercises
-## This repo is for Cyber4s Course by OMER NAVEH for OOP related tasks
+## This repo is for Cyber4s Course by *Omer Naveh and Shaked Erinberg* for OOP related tasks
 ### The 4 reasons to use OOP:
 - Abstraction- It is the process of selecting data from a larger pool to show only the relevant details to the object.
 - Encapsulation- accomplished when each object maintains a private state, inside a class.

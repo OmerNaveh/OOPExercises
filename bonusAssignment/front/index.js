@@ -10,10 +10,14 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
  const createPlayerSecBtn = document.getElementById('createPlayerSecBtn');
  const createPlayerSection = document.getElementById('createPlayerSection');
  const createPlayerBtn = document.getElementById('createPlayerBtn');
+ const lastNameInputPlayer = document.getElementById('lastNameInputPlayer');
+ const idInputPlayer = document.getElementById('idInputPlayer');
  //create goalkeeper
  const createGoalkeeperSecBtn = document.getElementById('createGoalkeeperSecBtn');
  const createGoalkeeperSect = document.getElementById('createGoalkeeperSect');
  const createGoalKepperBtn = document.getElementById('createGoalKepperBtn');
+ const goaleeLastNameInput = document.getElementById('goaleeLastNameInput');
+ const goaleeIdInput = document.getElementById('goaleeIdInput');
  //searchPlayer
  const searchPlayerDetBtn= document.getElementById('searchPlayerDetBtn');
  const SearchPlayerSect = document.getElementById('SearchPlayerSect');
@@ -41,6 +45,8 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
     ControlSect.style.visibility = 'hidden';
     createPlayerSection.style.visibility = 'visible';
     img.src=playerJerseyImg;
+    idInputPlayer.addEventListener('keyup', ()=>{showJerseyCool(idInputPlayer.value,undefined)})
+    lastNameInputPlayer.addEventListener('keyup', ()=>{showJerseyCool(undefined,lastNameInputPlayer.value)})
     jerseySect.style.visibility = 'visible';
     const backBtn = document.createElement('button');
     backBtn.classList.add('returnBtn');
@@ -50,6 +56,7 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
         ControlSect.style.visibility = 'visible';
         createPlayerSection.style.visibility = 'hidden';
         jerseySect.style.visibility = 'hidden';
+        hideJersey();
         backBtn.remove()
     })
  })
@@ -57,6 +64,8 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
     ControlSect.style.visibility = 'hidden';
     createGoalkeeperSect.style.visibility = 'visible';
     img.src=goalkeeperImg;
+    goaleeIdInput.addEventListener('keyup', ()=>{showJerseyCool(goaleeIdInput.value,undefined)})
+    goaleeLastNameInput.addEventListener('keyup', ()=>{showJerseyCool(undefined,goaleeLastNameInput.value)})
     jerseySect.style.visibility = 'visible';
     const backBtn = document.createElement('button');
     backBtn.classList.add('returnBtn');
@@ -66,6 +75,7 @@ const goalkeeperImg = "https://shop.inkholic.in/wp-content/uploads/2019/10/navy-
         ControlSect.style.visibility = 'visible';
         createGoalkeeperSect.style.visibility = 'hidden';
         jerseySect.style.visibility = 'hidden';
+        hideJersey();
         backBtn.remove()
     })
  })
@@ -132,6 +142,7 @@ function searchBtnCap2(){
         ControlSect.style.visibility = 'visible';
         setPlayerInfoSect.style.visibility = 'hidden';
         removeExtDet()
+        hideJersey();
         backBtn.remove()})
         searchPlayerDetBtn.removeEventListener('click', searchBtnCap2)
 }
@@ -230,6 +241,7 @@ async function whatDetCanChange(playerId){
     try {    
         const response = await axios.get('http://localhost:8080/player/get', {headers:{id:playerId}});
         const data = response.data;
+        showJersey(data);
         if(data.hasOwnProperty('position')){
             playerSet.style.visibility = 'visible'
             return true
@@ -295,4 +307,8 @@ function hideJersey(){
     playerNumber.textContent = '';
     playerName.textContent = '';
 }
-
+function showJerseyCool(id,lastName){
+    if(lastName) {playerName.textContent = lastName;}
+    if(id){playerNumber.textContent = id}
+    jerseySect.style.visibility = 'visible';
+}
